@@ -110,7 +110,7 @@ player button {
     font-weight: bold;
 }
 
-.input-hand { width: 150px; }
+.hand-input { width: 150px; }
 .input-board { width: 127px; }
 
 .output-equity { 
