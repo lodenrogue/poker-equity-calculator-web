@@ -9,25 +9,27 @@
 </head>
 <body>
 
-  <container>
-    <players>
-      <header>
-	<label id="hand-label">Hand</label>
-	<label id="equity-label">Equity</label>
-      </header>
-      <player-list></player-list>
-    </players>
+ <container class="equity-container">
+    <header class="header-row">
+        <label id="hand-label" class="label-hand">Hand</label>
+        <label id="equity-label">Equity</label>
+    </header>
 
-    <board>
-      <label>Board</label>
-      <input type="text" readonly>
-    </board>
-    <controls>
-      <button>Evaluate</button>
-      <button>Clear</button>
-    </controls>
-  </container>
-  
+    <main-layout>
+        <player-list></player-list>
+
+        <side-panel class="controls-sidebar">
+            <board class="board-group">
+                <label>Board</label>
+                <input type="text" class="input-board" readonly>
+            </board>
+            <controls>
+                <button class="btn-evaluate">Evaluate</button>
+                <button class="btn-clear">Clear</button>
+            </controls>
+        </side-panel>
+    </main-layout>
+</container> 
 
     <div class="equity-container">
         <div class="header-row">
