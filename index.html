@@ -9,103 +9,27 @@
 </head>
 <body>
 
- <container class="equity-container">
-    <header class="header-row">
-        <label id="hand-label" class="label-hand">Hand</label>
-        <label id="equity-label">Equity</label>
-    </header>
+    <container class="equity-container">
+	<header class="header-row">
+	    <label id="hand-label">Hand</label>
+	    <label id="equity-label">Equity</label>
+	</header>
 
-    <main-layout>
-        <player-list></player-list>
+	<main-layout>
+	    <player-list></player-list>
 
-        <side-panel class="controls-sidebar">
-            <board class="board-group">
-                <label>Board</label>
-                <input type="text" class="input-board" readonly>
-            </board>
-            <controls>
-                <button class="btn-evaluate">Evaluate</button>
-                <button class="btn-clear">Clear</button>
-            </controls>
-        </side-panel>
-    </main-layout>
-</container> 
-
-    <div class="equity-container">
-        <div class="header-row">
-            <span class="label-hand">Hand</span>
-            <span class="label-equity">Equity</span>
-        </div>
-
-        <div class="main-layout">
-            <div class="player-list" id="playerList">
-                <div class="player-row">
-                    <label class="btn-player">Player 1</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand" placeholder="AsKs">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 2</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand" placeholder="QhQd">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 3</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 4</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 5</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 6</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 7</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 8</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-                <div class="player-row">
-                    <label class="btn-player">Player 9</label>
-                    <button class="btn-random">RD</button>
-                    <input type="text" class="input-hand">
-                    <input type="text" class="output-equity" readonly>
-                </div>
-            </div>
-
-            <div class="controls-sidebar">
-                <div class="board-group">
-                    <label>Board</label>
-                    <input type="text" class="input-board" placeholder="JcTh2s">
-                </div>
-                
-                <button class="btn-evaluate" id="evaluateBtn">Evaluate</button>
-                <button class="btn-clear" id="clearBtn">Clear All</button>
-            </div>
-        </div>
-    </div>
+	    <side-panel class="controls-sidebar">
+		<board class="board-group">
+		    <label>Board</label>
+		    <input type="text" class="input-board" readonly>
+		</board>
+		<controls>
+		    <button class="btn-evaluate">Evaluate</button>
+		    <button class="btn-clear">Clear</button>
+		</controls>
+	    </side-panel>
+	</main-layout>
+    </container> 
 
 </body>
 </html>
