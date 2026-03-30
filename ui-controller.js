@@ -3,6 +3,7 @@ class UIController {
     constructor() {
 	this.createPlayers();
 	this.initializeButtons();
+	this.game = new Game();
     }
 
     createPlayers() {
@@ -57,7 +58,7 @@ class UIController {
 	    const players = this.getPlayers();
 	    const board = this.getBoard();
 
-	    //const evaluatedPlayers = game.evaluate(players, board);
+	    const evaluatedPlayers = this.game.evaluate(players, board);
 	    //updateEquity(evaluatedPlayers);
 	});
     }
