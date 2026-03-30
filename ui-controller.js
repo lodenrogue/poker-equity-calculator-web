@@ -55,11 +55,16 @@ class UIController {
 
 	button.addEventListener("click", () => {
 	    const players = this.getPlayers();
-	    //const board = getBoard();
+	    const board = this.getBoard();
 
 	    //const evaluatedPlayers = game.evaluate(players, board);
 	    //updateEquity(evaluatedPlayers);
 	});
+    }
+
+    getBoard() {
+	const boardInput = document.querySelector("#board-input");
+	return boardInput.value;
     }
 
     getPlayers() {
