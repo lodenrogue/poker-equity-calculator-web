@@ -25,6 +25,7 @@ class UIController {
     initializeButtons() {
 	this.initializeRandomButtons();
 	this.initializeClearButton();
+	this.initializeEvaluateButton();
     }
 
     initializeRandomButtons() {
@@ -47,5 +48,35 @@ class UIController {
 		handInput.value = "";
 	    }
 	});
+    }
+
+    initializeEvaluateButton() {
+	const button = document.querySelector("#btn-evaluate");
+
+	button.addEventListener("click", () => {
+	    const players = this.getPlayers();
+	    //const board = getBoard();
+
+	    //const evaluatedPlayers = game.evaluate(players, board);
+	    //updateEquity(evaluatedPlayers);
+	});
+    }
+
+    getPlayers() {
+	let players = [];
+
+	for (let i = 1; i <= MAX_PLAYERS; i++) {
+	    const handInput = document.querySelector(`#hand-input-${i}`);
+	    const hand = handInput.value
+
+	    if(hand) {
+		players.push({
+		    "id": i,
+		    "hand": hand
+		});
+	    }
+	}
+
+	return players;
     }
 }
