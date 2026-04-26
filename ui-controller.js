@@ -16,7 +16,7 @@ class UIController {
 		<label>Player ${i}</label>
 		<button id="random-button-${i}">RD</button>
 		<input type="text" class="hand-input" id="hand-input-${i}">
-		<input type="text" class="output-equity" readonly>
+		<input type="text" class="output-equity" readonly id="output-equity-${i}">
 	    </player>`;
 	}
 
@@ -58,14 +58,23 @@ class UIController {
 	    const players = this.getPlayers();
 	    const board = this.getBoard();
 
-	    const evaluatedPlayers = this.game.evaluate(players, board);
-	    //updateEquity(evaluatedPlayers);
+	    const playerEquity = this.game.evaluate(players, board);
+	    const equityOutput = document.querySelector("#output-equity-1");
+	    equityOutput.value = playerEquity;
 	});
     }
 
     getBoard() {
 	const boardInput = document.querySelector("#board-input");
-	return boardInput.value;
+	const rawBoard = boardInput.value;
+	const board = [];
+	
+	for(let i = 0; i < rawBoard.length / 2; i++) {
+	    if(i >= 5) break;
+	    const offset = i * 2;
+	    board.push(rawBoard.slice(offset, offset + 2))
+	}
+	return board;
     }
 
     getPlayers() {
@@ -78,11 +87,17 @@ class UIController {
 	    if(hand) {
 		players.push({
 		    "id": i,
-		    "hand": hand
+		    "hand": this.getHandCards(hand)
 		});
 	    }
 	}
 
 	return players;
+    }
+
+    getHandCards(hand) {
+	if (hand == "random") return ["random"];
+	if (hand.length == 2) return [hand];
+	return [hand.slice(0, 2), hand.slice(2, 4)];
     }
 }
