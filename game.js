@@ -29,7 +29,7 @@ class Game {
         }
 
         // Return win percentage formatted to 2 decimal places
-        return ((playerWins / iterations) * 100).toFixed(2) + "%";
+        return ((playerWins / iterations) * 100).toFixed(0) + "%";
     }
 
     isRandomHand(hand) {

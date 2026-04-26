@@ -24,7 +24,7 @@ body {
 container {
     display: block;
     width: 580px;
-    height: 420px;
+    height: 460px;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--neon-purple);
@@ -48,7 +48,7 @@ header {
 
 .label-hand {
     margin-left: 40px;
-    margin-right: 75px;
+    margin-right: 65px;
 }
 
 main-layout {
@@ -80,6 +80,7 @@ board-group label {
     font-size: 12px;
     text-transform: uppercase;
     margin-bottom: 8px;
+    margin-left: 40px;
     color: var(--neon-purple);
 }
 
