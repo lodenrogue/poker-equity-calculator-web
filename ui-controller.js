@@ -35,7 +35,7 @@ class UIController {
 
 	    button.addEventListener('click', () => {
 		const handInput = document.querySelector(`#hand-input-${i}`);
-		handInput.value = "random";
+		handInput.value = handInput.value == "random" ? "" : "random";
 	    });
 	}
     }
@@ -44,9 +44,15 @@ class UIController {
 	const button = document.querySelector("#btn-clear");
 
 	button.addEventListener("click", () => {
+	    const boardInput = document.querySelector("#board-input");
+	    boardInput.value = "";
+
 	    for (let i = 1; i <= MAX_PLAYERS; i++) {
 		const handInput = document.querySelector(`#hand-input-${i}`);
+		const equityOutput = document.querySelector(`#output-equity-${i}`);
+
 		handInput.value = "";
+		equityOutput.value = "";
 	    }
 	});
     }
