@@ -137,7 +137,7 @@ player {
 player label { 
     display: inline-block;
     width: 75px; 
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-main);
 }
 

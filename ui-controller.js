@@ -32,10 +32,29 @@ class UIController {
     initializeRandomButtons() {
 	for (let i = 1; i <= MAX_PLAYERS; i++) {
 	    const button = document.querySelector(`#random-button-${i}`);
+	    const handInput = document.querySelector(`#hand-input-${i}`);
 
 	    button.addEventListener('click', () => {
-		const handInput = document.querySelector(`#hand-input-${i}`);
-		handInput.value = handInput.value == "random" ? "" : "random";
+		if(i === 1) {
+		    handInput.value = handInput.value == "random" ? "" : "random";
+		} else if(i === 2) {
+		    const thirdHandInput = document.querySelector("#hand-input-3");
+
+		    if (thirdHandInput.value != "random") {
+			handInput.value = handInput.value == "random" ? "" : "random";
+		    }
+		} else {
+		    handInput.value = "random";
+		}
+
+		if (i > 1) {
+		    for(let j = 2; j <= MAX_PLAYERS; j++) {
+			if (j === i) continue;
+
+			const otherHandInput = document.querySelector(`#hand-input-${j}`);
+			otherHandInput.value = j < i ? "random" : "";
+		    }
+		}
 	    });
 	}
     }
@@ -103,7 +122,7 @@ class UIController {
 
     getHandCards(hand) {
 	if (hand == "random") return ["random"];
-	if (hand.length == 2) return [hand];
+	if (hand.length === 2) return [hand];
 	return [hand.slice(0, 2), hand.slice(2, 4)];
     }
 }
