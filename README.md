@@ -4,7 +4,6 @@ A high-performance, sleek poker equity calculator designed to help
 players determine their win probability in real-time. This tool
 supports up to 9 players.
 
-You can 
 ## 📸 Preview
 
 <p align="center">
