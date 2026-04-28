@@ -2,6 +2,8 @@ class UIController {
 
     constructor() {
 	this.createPlayers();
+	this.initializeHandInputs();
+	this.initializeBoardInput();
 	this.initializeButtons();
 	this.game = new Game();
     }
@@ -11,7 +13,7 @@ class UIController {
 	let playerHTML = '';
 
 	for (let i = 1; i <= MAX_PLAYERS; i++) {
-	playerHTML += `
+	    playerHTML += `
 	    <player>
 		<label>Player ${i}</label>
 		<button id="random-button-${i}">RD</button>
@@ -21,6 +23,55 @@ class UIController {
 	}
 
 	playerList.innerHTML = playerHTML;
+    }
+
+    attachPokerInputValidation(inputField, maxChars) {
+	const isRank = char => /[2-9AKQJT]/i.test(char);
+	const isSuit = char => /[CHSD]/i.test(char);
+
+	inputField.addEventListener('input', (event) => {
+            const cursorPosition = inputField.selectionStart;
+            const currentInputValue = inputField.value;
+
+            let formattedValue = '';
+            let expectRank = true;
+
+            for (const char of currentInputValue) {
+		if (formattedValue.length === maxChars) break;
+
+		if (expectRank && isRank(char)) {
+                    formattedValue += char.toUpperCase();
+                    expectRank = false;
+		} else if (!expectRank && isSuit(char)) {
+                    formattedValue += char.toLowerCase();
+                    expectRank = true;
+		}
+            }
+
+            if (currentInputValue !== formattedValue) {
+		const lengthDifference = currentInputValue.length - formattedValue.length;
+		const adjustedPosition = Math.max(0, cursorPosition - lengthDifference);
+
+		inputField.value = formattedValue;
+		inputField.setSelectionRange(adjustedPosition, adjustedPosition);
+            }
+	});
+    }
+
+    initializeBoardInput() {
+	const boardInput = document.getElementById("board-input");
+	if (boardInput) {
+            this.attachPokerInputValidation(boardInput, 10);
+	}
+    }
+
+    initializeHandInputs() {
+	for (let i = 1; i <= MAX_PLAYERS; i++) {
+            const playerInput = document.getElementById(`hand-input-${i}`);
+            if (playerInput) {
+		this.attachPokerInputValidation(playerInput, 4);
+            }
+	}
     }
 
     initializeButtons() {
