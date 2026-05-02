@@ -16,11 +16,7 @@ class Game {
             this.removeBoardCardsFromDeck(deck, board);
 
             const communityCards = this.getCommunityCards(deck, board);
-            
-            // HandRankUtils.getWinners returns an array of player objects who won
             const winners = HandRankUtils.getWinners(players, communityCards);
-
-            // Check if player with ID 1 is amongst the winners (handles ties correctly)
             const playerOneWon = winners.some(w => w.id === 1);
 
             if (playerOneWon) {
