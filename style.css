@@ -17,14 +17,17 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 20px;
     color: var(--text-main);
+    box-sizing: border-box;
 }
 
 /* Containers */
 container {
     display: block;
-    width: 580px;
-    height: 460px;
+    width: 100%;
+    max-width: 580px;
+    min-height: 460px;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--neon-purple);
@@ -186,4 +189,64 @@ player button {
     color: white;
     background: rgba(255, 75, 43, 0.2);
     box-shadow: 0 0 10px rgba(255, 75, 43, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    container {
+        padding: 15px;
+        height: auto;
+    }
+
+    header {
+        margin-left: 0;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .label-hand, .label-equity {
+        margin: 0;
+    }
+
+    main-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    player-list {
+        width: 100%;
+    }
+
+    player {
+        justify-content: space-between;
+    }
+
+    .hand-input {
+        flex-grow: 1;
+        width: auto;
+        min-width: 80px;
+    }
+
+    side-panel {
+        border-top: 1px solid var(--border-glow);
+        padding-top: 20px;
+    }
+
+    board-group {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    board-group label {
+        margin-left: 0;
+    }
+
+    .input-board, #btn-evaluate, #btn-clear {
+        width: 100%;
+    }
+
+    #btn-evaluate {
+        height: 50px;
+    }
 }
