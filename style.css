@@ -205,8 +205,12 @@ player button {
         text-align: center;
     }
 
-    .label-hand, .label-equity {
-        margin: 0;
+    .label-hand {
+	margin-left: 50%;
+    }
+
+    .label-equity {
+	margin-left: 10%;
     }
 
     main-layout {
