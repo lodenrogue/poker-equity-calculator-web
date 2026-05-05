@@ -1,17 +1,42 @@
 :root {
+    /* Base Backgrounds */
     --bg-dark: #0a0a12;
+    --bg-gradient-inner: #1a1a3a;
     --card-bg: rgba(25, 25, 40, 0.8);
+    --input-bg: rgba(0, 0, 0, 0.4);
+    
+    /* Neon Accents */
     --neon-purple: #bc13fe;
+    --neon-purple-dark: #7a10a1;
+    --neon-purple-alpha: rgba(188, 19, 254, 0.1);
+    --neon-purple-glow: rgba(188, 19, 254, 0.4);
+    --neon-purple-glow-strong: rgba(188, 19, 254, 0.6);
+    
     --neon-blue: #24d1ff;
+    --neon-blue-alpha: rgba(36, 209, 255, 0.1);
+    
+    /* Status & Feedback */
+    --error-red: #ff4b2b;
+    --error-red-alpha: rgba(255, 75, 43, 0.2);
+    --error-red-glow: rgba(255, 75, 43, 0.4);
+    
+    /* Text & Borders */
     --text-main: #e0e0ff;
+    --text-pure: #ffffff;
+    --text-muted: #888;
     --border-glow: rgba(188, 19, 254, 0.3);
+    --border-muted: #555;
+    
+    /* Shadows */
+    --shadow-purple: rgba(188, 19, 254, 0.2);
+    --shadow-purple-inset: rgba(188, 19, 254, 0.1);
 }
 
 body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-dark);
     background-image: 
-        radial-gradient(circle at 50% 50%, #1a1a3a 0%, #0a0a12 100%);
+        radial-gradient(circle at 50% 50%, var(--bg-gradient-inner) 0%, var(--bg-dark) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +60,7 @@ container {
     padding: 25px;
     box-sizing: border-box;
     position: relative;
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.2), inset 0 0 10px rgba(188, 19, 254, 0.1);
+    box-shadow: 0 0 20px var(--shadow-purple), inset 0 0 10px var(--shadow-purple-inset);
 }
 
 header {
@@ -94,13 +119,13 @@ controls {
 
 /* Inputs & Buttons */
 input[type="text"] {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--input-bg);
     height: 32px;
     border: 1px solid var(--border-glow);
     border-radius: 4px;
     padding: 0 10px;
     font-family: 'Courier New', monospace;
-    color: #fff;
+    color: var(--text-pure);
     box-sizing: border-box;
     transition: all 0.3s ease;
 }
@@ -113,8 +138,8 @@ input[type="text"]:focus {
 
 button {
     height: 32px;
-    background: rgba(188, 19, 254, 0.1);
-    color: white;
+    background: var(--neon-purple-alpha);
+    color: var(--text-pure);
     border: 1px solid var(--neon-purple);
     border-radius: 4px;
     cursor: pointer;
@@ -154,7 +179,7 @@ player button {
 
 .output-equity { 
     width: 65px; 
-    background: rgba(36, 209, 255, 0.1) !important; 
+    background: var(--neon-blue-alpha) !important; 
     color: var(--neon-blue) !important;
     border-color: var(--neon-blue) !important;
     text-align: center; 
@@ -167,28 +192,28 @@ player button {
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 14px;
-    background: linear-gradient(45deg, #bc13fe, #7a10a1);
+    background: linear-gradient(45deg, var(--neon-purple), var(--neon-purple-dark));
     border: none;
-    box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+    box-shadow: 0 0 10px var(--neon-purple-glow);
 }
 
 #btn-evaluate:hover {
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+    box-shadow: 0 0 20px var(--neon-purple-glow-strong);
     transform: translateY(-1px);
 }
 
 #btn-clear {
     width: 135px;
     background: transparent;
-    border-color: #555;
-    color: #888;
+    border-color: var(--border-muted);
+    color: var(--text-muted);
 }
 
 #btn-clear:hover {
-    border-color: #ff4b2b;
-    color: white;
-    background: rgba(255, 75, 43, 0.2);
-    box-shadow: 0 0 10px rgba(255, 75, 43, 0.4);
+    border-color: var(--error-red);
+    color: var(--text-pure);
+    background: var(--error-red-alpha);
+    box-shadow: 0 0 10px var(--error-red-glow);
 }
 
 /* Mobile Responsiveness */
@@ -206,11 +231,11 @@ player button {
     }
 
     .label-hand {
-	margin-left: 50%;
+        margin-left: 50%;
     }
 
     .label-equity {
-	margin-left: 10%;
+        margin-left: 10%;
     }
 
     main-layout {
