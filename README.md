@@ -4,7 +4,7 @@ A high-performance, sleek poker equity calculator designed to help
 players determine their win probability in real-time. This tool
 supports up to 9 players.
 
-[Try it here](http://arkvis.com/poker-equity/)
+[Try it here](https://arkvis.com/poker-equity/)
 
 ## 📸 Preview
 
