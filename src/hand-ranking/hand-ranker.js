@@ -33,9 +33,8 @@ class HandRankUtils {
         }
     }
 
-    static getWinners(playersData, communityCardsStrings) {
+    static getWinners(playersData, communityCardsStrings, deck) {
         // Deck class must be available from your external file
-        const deck = new Deck(); 
         deck.shuffle();
 
         // Parse community cards (passed as strings)

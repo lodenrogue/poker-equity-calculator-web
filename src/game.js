@@ -16,7 +16,7 @@ class Game {
             this.removeBoardCardsFromDeck(deck, board);
 
             const communityCards = this.getCommunityCards(deck, board);
-            const winners = HandRankUtils.getWinners(players, communityCards);
+            const winners = HandRankUtils.getWinners(players, communityCards, deck);
             const playerOneWon = winners.some(w => w.id === 1);
 
             if (playerOneWon) {
