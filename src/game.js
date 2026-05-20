@@ -24,7 +24,7 @@ class Game {
             }
         }
 
-        // Return win percentage formatted to 2 decimal places
+        // Return win percentage formatted to 0 decimal places
         return ((playerWins / iterations) * 100).toFixed(0) + "%";
     }
 
@@ -38,20 +38,23 @@ class Game {
 
             if (this.isRandomHand(playerHand)) continue;
 
-            if (playerHand[0]) deck.remove(new Card(playerHand[0]));
-            if (playerHand[1]) deck.remove(new Card(playerHand[1]));
+            // Direct tracking since elements are already Card objects
+            if (playerHand[0]) deck.remove(playerHand[0]);
+            if (playerHand[1]) deck.remove(playerHand[1]);
         }
     }
 
     removeBoardCardsFromDeck(deck, board) {
         for (let bIndex in board) {
             const card = board[bIndex];
-            deck.remove(new Card(card));
+            // Direct tracking since elements are already Card objects
+            deck.remove(card);
         }
     }
 
     getCommunityCards(deck, board) {
-        const communityCards = board.map(cardStr => new Card(cardStr));
+        // Directly shallow-copy the array since it already contains Card objects
+        const communityCards = [...board];
         while (communityCards.length < 5) {
             communityCards.push(deck.draw());
         }
