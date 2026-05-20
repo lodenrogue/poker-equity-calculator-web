@@ -38,20 +38,20 @@ class Game {
 
             if (this.isRandomHand(playerHand)) continue;
 
-            if (playerHand[0]) deck.remove(playerHand[0]);
-            if (playerHand[1]) deck.remove(playerHand[1]);
+            if (playerHand[0]) deck.remove(new Card(playerHand[0]));
+            if (playerHand[1]) deck.remove(new Card(playerHand[1]));
         }
     }
 
     removeBoardCardsFromDeck(deck, board) {
         for (let bIndex in board) {
             const card = board[bIndex];
-            deck.remove(card);
+            deck.remove(new Card(card));
         }
     }
 
     getCommunityCards(deck, board) {
-        const communityCards = [...board];
+        const communityCards = board.map(cardStr => new Card(cardStr));
         while (communityCards.length < 5) {
             communityCards.push(deck.draw());
         }
