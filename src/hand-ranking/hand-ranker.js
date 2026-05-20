@@ -18,10 +18,9 @@ class HandRankUtils {
             const isRandom = player.hand?.includes("random");
             
             if (isRandom) {
-                // Draw 2 new cards and parse them
                 player.hand = [
-                    new Card(deck.draw()),
-                    new Card(deck.draw())
+                    deck.draw(),
+                    deck.draw()
                 ];
             } else if (Array.isArray(player.hand)) {
                 // Ensure existing strings are converted to Card objects
