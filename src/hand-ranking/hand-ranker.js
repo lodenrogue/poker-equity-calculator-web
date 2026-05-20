@@ -18,10 +18,9 @@ class HandRankUtils {
             const isRandom = player.hand?.includes("random");
             
             if (isRandom) {
-                // Draw 2 new cards and parse them
                 player.hand = [
-                    new Card(deck.draw()),
-                    new Card(deck.draw())
+                    deck.draw(),
+                    deck.draw()
                 ];
             } else if (Array.isArray(player.hand)) {
                 // Ensure existing strings are converted to Card objects
@@ -37,14 +36,23 @@ class HandRankUtils {
         // Deck class must be available from your external file
         deck.shuffle();
 
-        // Parse community cards (passed as strings)
+        // communityCardsStrings elements are now actual Card objects from Game class refactor
         const communityCards = communityCardsStrings.map(cStr => {
             deck.remove(cStr); // Remove from deck
-            return new Card(cStr);
+            // Ensure we handle instances or strings gracefully
+            return cStr instanceof Card ? cStr : new Card(cStr);
         });
 
-        // Deep copy players to avoid UI mutation
-        const players = JSON.parse(JSON.stringify(playersData));
+        // Use a customized deep copy approach since JSON.stringify strips out class methods from Card objects
+        const players = playersData.map(p => {
+            return {
+                ...p,
+                hand: Array.isArray(p.hand) 
+                    ? p.hand.map(c => c instanceof Card ? new Card(c.toString()) : c) 
+                    : p.hand
+            };
+        });
+        
         this.dealHoleCards(deck, players);
 
         const processedHands = players.map(p => {
