@@ -33,10 +33,8 @@ class HandRankUtils {
     }
 
     static getWinners(playersData, communityCardsStrings, deck) {
-        // Deck class must be available from your external file
         deck.shuffle();
 
-        // communityCardsStrings elements are now actual Card objects from Game class refactor
         const communityCards = communityCardsStrings.map(cStr => {
             deck.remove(cStr); // Remove from deck
             // Ensure we handle instances or strings gracefully
